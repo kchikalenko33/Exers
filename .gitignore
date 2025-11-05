@@ -1,0 +1,35 @@
+# IDEA project settings
+.idea/
+*.iml
+
+# Build outputs
+build/
+.gradle/
+
+# Gradle wrappers (jar-файлы не игнорируются)
+!gradle/wrapper/gradle-wrapper.jar
+
+# Java class files
+*.class
+
+# Logs, temp, OS junk
+*.log
+*.tmp
+hs_err_pid*
+logs/
+.DS_Store
+Thumbs.db
+
+# Selenide test output/screenshots
+test-output/
+screenshots/
+
+# JAR/WAR/EAR artifacts
+*.jar
+*.war
+*.ear
+
+# Local config files
+.env
+application.properties
+application.yml
