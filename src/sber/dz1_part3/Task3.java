@@ -1,13 +1,30 @@
 package sber.dz1_part3;
 
+import java.util.Scanner;
+
 public class Task3 {
-    public static void myMethod(int m, int n) {
+    public static void sumOfPowers(int m, int n) {
         if (m < 0 || m > 10 || n < 0 || n > 10) {
             System.out.println("Ошибка: Числа должны быть в диапазоне от 1 до 9");
             return;
         }
-        for (int i = m; i < n; i++) {
-//todo
+
+        int sum = 0;
+        int power = 1;
+
+        for (int i = 1; i <= n; i++) {
+            power = power * m;
+            sum += power;
         }
+        System.out.println(sum);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите первое число - ");
+        int m = Integer.parseInt(scanner.nextLine());
+        System.out.print("Введите второе число - ");
+        int n = Integer.parseInt(scanner.nextLine());
+        sumOfPowers(m, n);
     }
 }
