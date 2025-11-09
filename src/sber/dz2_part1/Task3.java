@@ -1,7 +1,9 @@
 package sber.dz2_part1;
 
+import java.util.Scanner;
+
 public class Task3 {
-    public static int addNumberOfArray(int[] a, int x) {
+    public static int findInsertIndex(int[] a, int x) {
         int index = -1;
         for (int i = 0; i < a.length ; i++) {
             if (a[i] == x) {
@@ -15,5 +17,32 @@ public class Task3 {
             }
         }
         return index == -1 ? a.length : index;
-    } //todo
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.nextLine());
+        if (n <= 0 || n >= 100) {
+            System.out.println("Ошибка: 0 < N < 100");
+            return;
+        }
+
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(scanner.nextLine());
+            if (arr[i] <= -1000 || arr[i] >= 1000) {
+                System.out.println("Ошибка: элементы массива должны быть в (-1000, 1000)");
+                return;
+            }
+        }
+
+        int x = Integer.parseInt(scanner.nextLine());
+        if (x <= -1000 || x >= 1000) {
+            System.out.println("Ошибка: X должен быть в (-1000, 1000)");
+            return;
+        }
+
+        int insertIndex = findInsertIndex(arr, x);
+        System.out.println(insertIndex);
+    }
 }
