@@ -27,7 +27,7 @@ public class Task1 {
 
         double[] array = new double[n];
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.print("Введи число - ");
             array[i] = Integer.parseInt(scanner.nextLine());
 

@@ -1,5 +1,6 @@
 package sber.dz2_part1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task3 {
@@ -21,28 +22,31 @@ public class Task3 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Введи длину массива - ");
         int n = Integer.parseInt(scanner.nextLine());
         if (n <= 0 || n >= 100) {
             System.out.println("Ошибка: 0 < N < 100");
             return;
         }
 
-        int[] arr = new int[n];
+        int[] a = new int[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(scanner.nextLine());
-            if (arr[i] <= -1000 || arr[i] >= 1000) {
+            System.out.print("Введи число массива -");
+            a[i] = Integer.parseInt(scanner.nextLine());
+            if (a[i] <= -1000 || a[i] >= 1000) {
                 System.out.println("Ошибка: элементы массива должны быть в (-1000, 1000)");
                 return;
             }
         }
-
+        System.out.print("Введи число которое нужно добавить - ");
         int x = Integer.parseInt(scanner.nextLine());
         if (x <= -1000 || x >= 1000) {
             System.out.println("Ошибка: X должен быть в (-1000, 1000)");
             return;
         }
+        Arrays.sort(a);
 
-        int insertIndex = findInsertIndex(arr, x);
+        int insertIndex = findInsertIndex(a, x);
         System.out.println(insertIndex);
     }
 }

@@ -20,7 +20,9 @@ public class Task2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int n = scanner.nextInt();
+        System.out.print("Введи длину массива = ");
+        int n = Integer.parseInt(scanner.nextLine());
+
         if (n <= 0 || n >= 100) {
             System.out.println("Ошибка: N должно быть больше 0 и меньше 100");
             return;
@@ -28,14 +30,16 @@ public class Task2 {
 
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
-            a[i] = scanner.nextInt();
+            System.out.print("Введи число массива = ");
+            a[i] = Integer.parseInt(scanner.nextLine());
             if (a[i] <= 0 || a[i] >= 1000) {
                 System.out.println("Ошибка: каждый ai должен быть больше 0 и меньше 1000");
                 return;
             }
         }
 
-        int m = scanner.nextInt();
+        System.out.print("Введи длину массива = ");
+        int m = Integer.parseInt(scanner.nextLine());
         if (m <= 0 || m >= 100) {
             System.out.println("Ошибка: M должно быть больше 0 и меньше 100");
             return;
@@ -43,7 +47,8 @@ public class Task2 {
 
         int[] b = new int[m];
         for (int i = 0; i < m; i++) {
-            b[i] = scanner.nextInt();
+            System.out.print("Введи число массива = ");
+            b[i] = Integer.parseInt(scanner.nextLine());
             if (b[i] <= 0 || b[i] >= 1000) {
                 System.out.println("Ошибка: каждый aj должен быть больше 0 и меньше 1000");
                 return;
