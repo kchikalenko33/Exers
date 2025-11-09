@@ -2,7 +2,7 @@ package sber.dz1_part3;
 
 import java.util.Scanner;
 
-public class Task3 {
+public class Task3_1 {
     public static void sumOfPowers(int m, int n) {
         if (m < 0 || m > 10 || n < 0 || n > 10) {
             System.out.println("Ошибка: Числа должны быть в диапазоне от 1 до 9");
@@ -10,12 +10,11 @@ public class Task3 {
         }
 
         int sum = 0;
-        int power = 1;
 
         for (int i = 1; i <= n; i++) {
-            power = power * m;
-            sum += power;
+            sum += Math.pow(m,i);
         }
+
         System.out.println(sum);
     }
 
