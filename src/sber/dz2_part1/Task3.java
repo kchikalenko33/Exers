@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Task3 {
     public static int findInsertIndex(int[] a, int x) {
         int index = -1;
+
         for (int i = 0; i < a.length ; i++) {
             if (a[i] == x) {
                 index = i + 1;
