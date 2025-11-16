@@ -5,9 +5,9 @@ public class StepTracker {
     private MonthDate[] monthToData;
 
     public StepTracker() {
-        monthToData = new MonthData[12];
+//        monthToData = new MonthData[12];
         for (int i = 0; i < monthToData.length; i++) {
-            monthToData[i] = new MonthData();
+//            monthToData[i] = new MonthData();
         }
     }
 
