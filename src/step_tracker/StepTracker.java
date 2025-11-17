@@ -32,8 +32,8 @@ public class StepTracker {
         int sumSteps = 0;
         int maxSteps = 0;
         int averageSteps = 0;
-        double distance = 0.0;
-        double calories = 0.0;
+        double distance;
+        double calories;
         int bestSeries = 0;
         int currentSeries = 0;
 
@@ -46,7 +46,11 @@ public class StepTracker {
                 System.out.print(", ");
             }
 
-            sumSteps += month[i];
+            if ((i + 1) % 5 == 0) {
+                System.out.println();
+            }
+
+                sumSteps += month[i];
             if (month[i] > maxSteps) {
                 maxSteps = month[i];
             }

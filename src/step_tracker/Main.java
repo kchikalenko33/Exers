@@ -16,39 +16,44 @@ public class Main {
         StepTracker stepTracker = new StepTracker();
 
         printMenu();
-        int userInput = scanner.nextInt();
+        String userInput = scanner.nextLine();
 
-        while (userInput != 0) {
-            switch (userInput) {
-                case 1:
-                    System.out.println("Введите номер месяца (0-11):");
-                    int month = scanner.nextInt();
-                    System.out.println("Введите номер дня (1-30):");
-                    int day = scanner.nextInt();
-                    System.out.println("Введите количество шагов:");
-                    int steps = scanner.nextInt();
-                    stepTracker.addSteps(day, month, steps);
-                    break;
+        while (!userInput.equals("end")) {
+            try {
+                switch (userInput) {
+                    case "1":
+                        System.out.println("Введите номер месяца (0-11):");
+                        int month = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите номер дня (1-30):");
+                        int day = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите количество шагов:");
+                        int steps = Integer.parseInt(scanner.nextLine());
+                        stepTracker.addSteps(day, month, steps);
+                        break;
 
-                case 2:
-                    System.out.println("Введите номер месяца для вывода статистики (0-11):");
-                    int statMonth = scanner.nextInt();
-                    stepTracker.printStatistics(statMonth);
-                    break;
+                    case "2":
+                        System.out.println("Введите номер месяца для вывода статистики (0-11):");
+                        int statMonth = Integer.parseInt(scanner.nextLine());
+                        stepTracker.printStatistics(statMonth);
+                        break;
 
-                case 3:
-                    System.out.println("Введите новую цель по количеству шагов:");
-                    int newGoal = scanner.nextInt();
-                    stepTracker.setGoalStep(newGoal);
-                    break;
+                    case "3":
+                        System.out.println("Введите новую цель по количеству шагов:");
+                        int newGoal = Integer.parseInt(scanner.nextLine());
+                        stepTracker.setGoalStep(newGoal);
+                        break;
 
-                default:
-                    System.out.println("Такой команды нет. Попробуйте снова.");
-                    break;
+                    default:
+                        System.out.println("Такой команды нет. Попробуйте снова.");
+                        break;
+                }
+
+                printMenu();
+                userInput = scanner.nextLine();
+            } catch (NumberFormatException e) {
+                System.out.println("Неправильно используешь программу, давай заново.");
             }
 
-            printMenu();
-            userInput = scanner.nextInt();
         }
 
         System.out.println("Программа завершена");
