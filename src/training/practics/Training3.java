@@ -1,4 +1,4 @@
-package training;
+package training.practics;
 
 public class Training3 {
     public static void main(String[] args) {

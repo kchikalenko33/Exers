@@ -1,6 +1,6 @@
 package step_tracker;
 
-public class MonthDate {
+public class MonthData {
     private int[] days = new int[30];
 
     public void addStepOfDay(int day, int countStep) {

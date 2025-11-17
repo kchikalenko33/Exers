@@ -1,17 +1,14 @@
-package training;
+package training.practics;
 
 import java.util.Scanner;
 
-public class Training7 {
-    public static void printCountPositiveElements(int[] numbers) {
-        int count = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if(numbers[i] > 0) {
-                count++;
-            }
+public class Training6 {
+    public static void printSumOddNum(int[] numbers) {
+        int sum = 0;
+        for (int i = 1; i < numbers.length; i += 2) {
+                sum += numbers[i];
         }
-
-        System.out.println(count);
+            System.out.println(sum);
     }
 
     public static void main(String[] args) {
@@ -19,6 +16,7 @@ public class Training7 {
         System.out.print("Введи длину массива - ");
 
         int length = Integer.parseInt(scanner.nextLine());
+
         int[] numbers = new int[length];
 
         for (int i = 0; i < length; i++) {
@@ -26,6 +24,6 @@ public class Training7 {
             numbers[i] = Integer.parseInt(scanner.nextLine());
         }
 
-        printCountPositiveElements(numbers);
+        printSumOddNum(numbers);
     }
 }
