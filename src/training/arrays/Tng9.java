@@ -13,7 +13,7 @@ public class Tng9 {
 
         while (value <= size * size) {
             
-            for (int i = 0; i <= bottom; i++) {
+            for (int i = left; i <= bottom; i++) {
                 array[top][i] = value++;
             }
             

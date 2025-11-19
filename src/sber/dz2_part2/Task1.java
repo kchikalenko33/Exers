@@ -10,18 +10,51 @@ package sber.dz2_part2;
 //        ● 0 < M < 100
 //        ● 0 < ai < 1000
 
+import java.util.Scanner;
+
 public class Task1 {
-    public static int[] printM(int[][] array) {
+    public static int[] minElements(int[][] array) {
         int[] minArray = new int[array.length];
+        int minDigit;
 
         for (int i = 0; i < array.length; i++) {
-        int minNumber = 0;
-            for (int j = 0; j < array[i].length; j++) {
-                if(array[i][j] < minNumber) {
-                    minNumber = array[i][j];
-                }
+                minDigit = array[i][0];
+            for (int j = 1; j < array[i].length; j++) {
+                int currentDigit = array[i][j];
+
+                if (currentDigit < minDigit) minDigit = currentDigit;
+            }
+            minArray[i] = minDigit;
+            System.out.println("Минимальное значение " + i + " строки - " + minDigit);
+        }
+
+        return minArray;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введи кол-во строк массива - ");
+        int n = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Введи кол-во столбцов массива - ");
+        int m = Integer.parseInt(scanner.nextLine());
+
+        int[][] array = new int[n][m];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.println("Введи число - ");
+                array[i][j] = Integer.parseInt(scanner.nextLine());
             }
         }
-        return minArray;
+
+        int[] minElements = minElements(array);
+
+        System.out.println("Минимальные элементы каждой строки:");
+        for (int min : minElements) {
+            System.out.print(min + " ");
+        }
+        System.out.println();
     }
 }
