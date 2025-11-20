@@ -1,4 +1,4 @@
-package sber.dz3_part1_task2;
+package sber.dz3_part1.task2;
 
 //Необходимо реализовать класс Student.
 //У класса должны быть следующие приватные поля:
