@@ -22,32 +22,43 @@ public class Student {
     private String name;
     private String surname;
     private int[] grades;
+    private int gradesCount;
 
     public Student(String name, String surname, int[] grades) {
         this.name = name;
         this.surname = surname;
         if (grades.length <= 10) {
-            this.grades = grades;
+            this.grades = new int[10];
+            System.arraycopy(grades, 0, this.grades, 0, grades.length);
+            this.gradesCount = grades.length;
         } else {
-            this.grades = Arrays.copyOfRange(grades, grades.length - 10, grades.length);
+            this.grades= new int[10];
+            System.arraycopy(grades, grades.length - 10, this.grades,0,10);
+            this.gradesCount = 10;
         }
     }
 
     public void addGrade(int grade) {
-        for (int i = 0; i < grades.length; i++) {
-            grades[i] = grades[i + 1];
+        if (gradesCount < 10) {
+            grades[gradesCount] = grade;
+            gradesCount++;
+        } else {
+            for (int i = 0; i < 9; i++) {
+                grades[i] = grades[i + 1];
+            }
+            grades[9] = grade;
         }
-            grades[grades.length - 1] = grade;
     }
 
-    public int avgGrade() {
+    public double avgGrade() {
+        if (gradesCount == 0) {
+            return 0;
+        }
         int sum = 0;
-
-        for (int i = 0; i < grades.length; i++) {
+        for (int i = 0; i < gradesCount; i++) {
             sum += grades[i];
         }
-
-        return sum / grades.length;
+        return (double) sum / gradesCount;
     }
 
     public String getName() {
@@ -59,19 +70,19 @@ public class Student {
     }
 
     public int[] getGrades() {
-        return grades;
+        return Arrays.copyOf(grades, gradesCount);
     }
 
-    public void setGrades(int[] grades) {
-        this.grades = grades;
+    public void setGrades(int[] newGrades) {
+        if (newGrades.length > 10) {
+            throw new IllegalArgumentException("Оценок не может быть больше 10");
+        }
+        gradesCount = newGrades.length;
+        System.arraycopy(newGrades, 0, grades, 0, gradesCount);
     }
 
     public String getSurname() {
         return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public static void main(String[] args) {
@@ -79,6 +90,11 @@ public class Student {
 
         Student student = new Student("name", "surname", grades);
 
-        System.out.println(Arrays.toString(student.grades));
+        System.out.println(Arrays.toString(student.getGrades()));
+
+        student.addGrade(5);
+        System.out.println(Arrays.toString(student.getGrades()));
+
+        System.out.println("Средний балл: " + student.avgGrade());
     }
 }
