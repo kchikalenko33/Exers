@@ -9,14 +9,33 @@ package sber.dz1;
 
 public class Task6 {
     public static void checkName(String str) {
-        if (str.length() < 2 || str.length() > 20) {
+        if (str == null || str.length() < 2 || str.length() > 20) {
             throw new IllegalArgumentException("Длина строки должна быть в диапазоне от 2 до 20");
         } else if (!Character.isUpperCase(str.charAt(0))) {
             throw new IllegalArgumentException("Первая буква должна быть заглавной");
         }
     }
 
+    public static void checkHeight(String str) {
+        if (str == null || str.trim().isEmpty()) {
+            throw new IllegalArgumentException("Рост не может быть null");
+        }
+
+        double height;
+
+        try {
+            height = Double.parseDouble(str);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Рост должен быть числом");
+        }
+
+        if (height <= 0) {
+            throw new IllegalArgumentException("Рост должен быть положительным");
+        }
+    }
+
     public static void main(String[] args) {
-        checkName("ыовпыво рывпр");
+        checkName("Повпыво рывпр");
+        checkHeight("5.01");
     }
 }

@@ -2,8 +2,6 @@ package sber.dz3_part1.task3;
 
 import sber.dz3_part1.task2.Student;
 
-import java.util.Arrays;
-
 public class StudentService {
     public Student[] bestStudents(Student[] students) {
         double bestGrade = students[0].avgGrade();
