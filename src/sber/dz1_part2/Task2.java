@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void checkMath(int x, int y) {
-        if (x <= -100 || y <= -100 || x >= 100 || y >= 100) {
-            System.out.println("Ошибка: Значения должны быть в диапазоне от -99 до 99");
+        if (x < -100 || y < -100 || x >= 100 || y >= 100) {
+            System.out.println("Ошибка: Значения должны быть в диапазоне от -99 до 100");
             return;
         }
 
