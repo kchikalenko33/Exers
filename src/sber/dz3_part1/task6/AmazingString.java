@@ -24,15 +24,11 @@ public class AmazingString {
     }
 
     public void reverseString() {
-        // char temp = arr[0];
-
         for (int i = 0; i < arr.length / 2; i++) {
             char temp = arr[i];
             arr[i] = arr[arr.length - 1 - i];
             arr[arr.length - 1 - i] = temp;
         }
-//        arr[0] = arr[arr.length - 1];12345
-//        arr[arr.length - 1] = temp;
     }
 
     public void trim() {
@@ -61,12 +57,40 @@ public class AmazingString {
         arr = trim;
     }
 
+    public boolean contains(char[] sub) {
+        if (sub.length == 0 || sub.length > arr.length) {
+            return false;
+        }
+
+        outer:
+        for (int i = 0; i <= arr.length - sub.length; i++) {
+            for (int j = 0; j < sub.length; j++) {
+                if (arr[i + j] != sub[j]) {
+                    continue outer;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean contains(String sub) {
+        char[] chars = new char[sub.length()];
+
+        for (int i = 0; i < sub.length(); i++) {
+            chars[i] = sub.charAt(i);
+        }
+
+        return contains(chars);
+    }
+
     public static void main(String[] args) {
         char[] ch = {'a', 'b'};
         System.out.println(ch);
 
         AmazingString a = new AmazingString("        Helwo   ");
         // a.reverseString();
+        System.out.println(a.contains("lwo"));
         a.trim();
         a.printString();
 
