@@ -1,4 +1,4 @@
-package dz;
+package dz.abstract_package;
 
 public interface Flyable {
     int MY = 10;

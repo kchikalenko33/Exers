@@ -1,4 +1,4 @@
-package dz;
+package dz.abstract_package;
 
 public abstract class Child extends AbstractClass {
     protected String surname;

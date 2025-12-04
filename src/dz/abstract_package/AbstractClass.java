@@ -1,4 +1,4 @@
-package dz;
+package dz.abstract_package;
 
 public abstract class AbstractClass {
     protected String name;

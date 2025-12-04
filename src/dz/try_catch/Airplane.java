@@ -1,6 +1,6 @@
 package dz.try_catch;
 
-import dz.Flyable;
+import dz.abstract_package.Flyable;
 
 public class Airplane implements Flyable {
 
