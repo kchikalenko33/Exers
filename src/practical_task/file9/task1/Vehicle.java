@@ -1,9 +1,9 @@
 package practical_task.file9.task1;
 
 public abstract class Vehicle {
-    private int passengers;
+    protected int passengers;
 
-    public Vehicle(int passengers) {
+    protected Vehicle(int passengers) {
         setPassengers(passengers);
     }
 
