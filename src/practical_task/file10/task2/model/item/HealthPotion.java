@@ -1,7 +1,7 @@
 package practical_task.file10.task2.model.item;
 
-public class HealthPotoin extends Potions{
-    public HealthPotoin(int count) {
+public class HealthPotion extends Potions{
+    public HealthPotion(int count) {
         super(count);
     }
 
