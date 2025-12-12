@@ -11,15 +11,18 @@ public class Cart {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int index, count;
+        int index;
+        int count;
         String stringNumber = "";
 
         for (int i = 0; i < product.length; i++) {
             System.out.println((i + 1) + ". " + product[i] + " " + sales[i] + " руб/шт.");
         }
+
         while (!stringNumber.equals("end")) {
             System.out.println("Выберите товар и количество или введите end.");
             stringNumber = scanner.nextLine().trim();
+
             if (!stringNumber.equals("end")) {
                 String[] numbers = stringNumber.split("\\s+");
                 if (numbers.length != 2) {
@@ -47,7 +50,8 @@ public class Cart {
         }
         counts[index - 1] += count;
         sums[index - 1] += sales[index - 1] * count;
-        return sum += sales[index - 1] * count;
+        sum += sales[index - 1] * count;
+        return sum;
     }
 
 
