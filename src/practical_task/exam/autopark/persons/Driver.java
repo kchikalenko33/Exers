@@ -37,4 +37,14 @@ public abstract class Driver implements Searchable {
     public String getDriverDetails() {
         return "Имя: " + firstName + ", фамилия: " + lastName + ", Номер лицензии: " + licenseNumber;
     }
+
+    public Vehicle getAssignedVehicle() {
+        return assignedVehicle;
+    }
+
+
+
+    public void releaseVehicle() {
+        this.assignedVehicle = null;
+    }
 }

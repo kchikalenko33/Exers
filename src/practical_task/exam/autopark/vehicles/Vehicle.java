@@ -45,4 +45,31 @@ public abstract class Vehicle implements Searchable {
 
         return (distance * fuelEconomy) / 100;
     }
+
+    @Override
+    public boolean matches(String keyword) {
+        if (keyword == null || keyword.isBlank()) {
+            return false;
+        }
+        String lower = keyword.toLowerCase();
+        return (brand != null && brand.toLowerCase().contains(lower))
+                || (model != null && model.toLowerCase().contains(lower))
+                || (registrationNumber != null && registrationNumber.toLowerCase().contains(lower))
+                || (type != null && type.name().toLowerCase().contains(lower))
+                || (status != null && status.name().toLowerCase().contains(lower));
+    }
+
+    public Driver getAssignedDriver() {
+        return assignedDriver;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
 }
