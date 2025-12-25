@@ -14,8 +14,8 @@ public class Task1 {
         while (true) {
             printMenu();
 
-            String phrase = reader.readLine();
-            String[] parts = phrase.split("\\s+");
+            String line = reader.readLine().trim();
+            String[] parts = line.split("\\s+");
             String command = parts[0].toLowerCase();
 
             if (command.equals("stop")) {
