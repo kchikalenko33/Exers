@@ -46,14 +46,13 @@ public enum Season {
     }
 
     public int whenNewYear() {
-        switch (this) {
-            case WINTER: return 10;
-            case SPRING: return 7;
-            case SUMMER: return 4;
-            case AUTUMN: return 1;
-
-            default: return 0;
-        }
+        return switch (this) {
+            case WINTER -> 10;
+            case SPRING -> 7;
+            case SUMMER -> 4;
+            case AUTUMN -> 1;
+            default -> 0;
+        };
     }
 
     public boolean containsMonth(int month) {
