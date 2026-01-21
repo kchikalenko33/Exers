@@ -22,6 +22,7 @@ public class Main {
 
         CatalogProcessor catalog = new CatalogProcessor();
         System.out.println(catalog.sortProducts(products, new NameComparator()));
+        System.out.println(catalog.sortProducts(products, new PriceComparator()));
 
 
 

@@ -4,7 +4,7 @@ import dz.map.Employee;
 
 import java.util.TreeSet;
 
-public class Employ implements  Comparable<Employ> {
+public class Employ implements Comparable<Employ> {
     private int id;
     private String name;
     private String department;
