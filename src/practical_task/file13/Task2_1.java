@@ -38,7 +38,7 @@ public class Task2_1 {
                         System.out.println(countries);
                     } else if (line[0].equalsIgnoreCase("search")) {
                         if (countries.get(line[1]) == null) System.out.println("no such abbreviation");
-                        else countries.get(line[1]);
+                        else System.out.println(countries.get(line[1]));
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
