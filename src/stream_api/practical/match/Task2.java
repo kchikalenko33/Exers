@@ -1,6 +1,7 @@
 package stream_api.practical.match;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Task2 {
     public static void main(String[] args) {
@@ -18,11 +19,25 @@ public class Task2 {
 
         List<String> passwords = List.of("Pass123!", "weak", "StrongP@ss1", "123", "Valid1@");
 
-//        passwords.stream()
-//                .allMatch(s -> {
-//                    if (s.length() >= 6) {
-//                    }
-//                }
-//                )
+        Predicate<String> isValidPassword = password -> {
+            if (password.length() < 6) return false;
+            if (password.contains("weak")) return false;
+            if (!password.matches(".*\\d.*")) return false;
+            if (!password.matches(".*[!@#$%&*].*")) return false;
+            return true;
+        };
+
+        boolean allValid = passwords.stream()
+                .allMatch(isValidPassword);
+
+        boolean anyValid = passwords.stream()
+                .anyMatch(isValidPassword);
+
+        boolean noneValid = passwords.stream()
+                .noneMatch(isValidPassword);
+
+        System.out.println(allValid);
+        System.out.println(anyValid);
+        System.out.println(noneValid);
     }
 }
