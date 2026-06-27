@@ -79,6 +79,8 @@ public class Main {
                 .collect(groupingBy(t -> t.date().getMonth().getValue(), groupingBy(t -> t.category())));
         transactionsByMonthAndCategory.forEach((k,v) -> System.out.println(k + " " + v));
 
-        Map<String, List<Double>> transactionsByCategoryAndSum;
+        Map<String, List<Double>> successfulAmountsByCategory = transactions.stream()
+                .collect(groupingBy(t -> t.category(),
+                        filtering(t -> t.isSuccessful(), mapping(t -> t.amount(), toList()))));
     }
 }
